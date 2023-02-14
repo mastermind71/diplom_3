@@ -26,6 +26,7 @@ public class RegistrationPage {
     private By buttonBun = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Булки']/parent::div");
     private By buttonSause = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Соусы']/parent::div");
     private  By buttonFilling = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Начинки']/parent::div");
+    private By selectedSection = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span");
 public RegistrationPage(WebDriver driver){
     this.driver = driver;
 }
@@ -81,13 +82,7 @@ public void pushSause(){
 public void pushFilling(){
     driver.findElement(buttonFilling).click();
 }
-public String getClassBun(){
-    return driver.findElement(buttonBun).getAttribute("class");
-}
-public String getClassSause(){
-    return driver.findElement(buttonSause).getAttribute("class");
-}
-public String getClassFilling(){
-    return driver.findElement(buttonFilling).getAttribute("class");
+public String getTextSelectSection(){
+    return driver.findElement(selectedSection).getText();
 }
 }

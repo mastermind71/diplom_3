@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,47 +11,39 @@ import pages.RegistrationPage;
 public class ConstructorTest {
     private WebDriver driver;
 
-    @Test
-    public void bunTest() {
+    @Before
+    public void setUp(){
         System.setProperty("webdriver.chrome.driver","/users/anastasia/downloads/WebDriver/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/users/anastasia/Applications/Yandex Browser");
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
+    }
+
+    @Test
+    public void bunTest() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.pushFilling();
         registrationPage.pushBun();
-        String expectedClass = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
-        String actualClass = registrationPage.getClassBun();
-        Assert.assertEquals(expectedClass, actualClass);
+        String expectedText = "Булки";
+        String actualText = registrationPage.getTextSelectSection();
+        Assert.assertEquals("Переход на раздел булки не осуществлен",expectedText, actualText);
     }
     @Test
     public void sauseTest() {
-        System.setProperty("webdriver.chrome.driver","/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/users/anastasia/Applications/Yandex Browser");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.pushFilling();
         registrationPage.pushSause();
-        String expectedClass = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
-        String actualClass = registrationPage.getClassSause();
-        Assert.assertEquals(expectedClass, actualClass);
+        String expectedText = "Соусы";
+        String actualText = registrationPage.getTextSelectSection();
+        Assert.assertEquals("Переход на раздел соусы не осуществлен",expectedText, actualText);
     }
     @Test
     public void fillingTest() {
-        System.setProperty("webdriver.chrome.driver","/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/users/anastasia/Applications/Yandex Browser");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.pushSause();
         registrationPage.pushFilling();
-        String expectedClass = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
-        String actualClass = registrationPage.getClassFilling();
-        Assert.assertEquals(expectedClass, actualClass);
+        String expectedText = "Начинки";
+        String actualText = registrationPage.getTextSelectSection();
+        Assert.assertEquals("Переход на раздел начинки не осуществлен",expectedText, actualText);
     }
     @After
     public void tearDown(){

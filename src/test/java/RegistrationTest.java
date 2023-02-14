@@ -7,13 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.RegistrationPage;
 import pages.api.UserApi;
 
-public class Registration {
+public class RegistrationTest {
     private WebDriver driver;
     private String accessToken;
     String expectedUrl = "https://stellarburgers.nomoreparties.site/account";
 
     @Test
-    public void Registration() {
+    public void registrationWithValidData() {
         System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
@@ -43,7 +43,7 @@ public class Registration {
         driver.quit();
     }
     @Test
-    public void registrationWithNonValidePassword() {
+    public void registrationWithNonValidPassword() {
         System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");

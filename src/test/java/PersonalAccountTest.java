@@ -15,6 +15,9 @@ public class PersonalAccountTest {
     @Before
     public void createUser(){
         UserApi.createCourier("Dmitry", "dmitry.kazakov1998@icloud.com", "123456789");
+        System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://stellarburgers.nomoreparties.site/");
     }
     @After
     public void deleteUser(){
@@ -28,9 +31,6 @@ public class PersonalAccountTest {
     }
     @Test
     public void openPersonalAccount(){
-        System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         LoginPage loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
         loginPage.pushLogin();
@@ -43,9 +43,6 @@ public class PersonalAccountTest {
     }
     @Test
     public void openMainPageFromButtonStellarBurger(){
-        System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         LoginPage loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
         loginPage.pushLogin();
@@ -59,9 +56,6 @@ public class PersonalAccountTest {
     }
     @Test
     public void openMainPageFromButtonConstructor(){
-        System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         LoginPage loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
         loginPage.pushLogin();
@@ -75,9 +69,6 @@ public class PersonalAccountTest {
     }
     @Test
     public void logoutTest(){
-        System.setProperty("webdriver.chrome.driver", "/users/anastasia/downloads/WebDriver/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://stellarburgers.nomoreparties.site/");
         LoginPage loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
         loginPage.pushLogin();
